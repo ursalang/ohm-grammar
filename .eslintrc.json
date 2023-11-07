@@ -1,0 +1,53 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json",
+      "test/tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "ignorePatterns": [ "*.ohm-bundle.d.ts" ],
+  "rules": {
+    "max-classes-per-file": "off",
+    "no-cond-assign": [
+      "error",
+      "except-parens"
+    ],
+    "no-console": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/testutil.ts"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-bitwise": "off",
+    "no-else-return": "off",
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "no-underscore-dangle": "off",
+    "no-warning-comments": "off",
+    "prefer-destructuring": "off",
+    "@typescript-eslint/no-shadow": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/object-curly-spacing": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/semi": "off"
+  }
+}
