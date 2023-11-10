@@ -1,3 +1,7 @@
+// Ursa parser tests using example source files.
+// © Reuben Thomas 2023
+// Released under the MIT license.
+
 import {fileTest as test} from './testutil.js'
 
 test('Increment a variable in a loop', 'test/increment-variable-in-loop')

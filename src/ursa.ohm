@@ -1,3 +1,7 @@
+// Ursa grammar.
+// © Reuben Thomas 2023
+// Released under the MIT license.
+
 Ursa {
   Sequence = ListOf<Exp, #sc> #sc
 

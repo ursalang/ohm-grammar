@@ -1,3 +1,7 @@
+// Ursa parser tests of basics using inline source snippets.
+// © Reuben Thomas 2023
+// Released under the MIT license.
+
 import {testGroup} from './testutil.js'
 
 Error.stackTraceLimit = Infinity

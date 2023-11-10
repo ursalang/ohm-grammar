@@ -1,3 +1,7 @@
+// Ursa grammar and parser test utilities.
+// © Reuben Thomas 2023
+// Released under the MIT license.
+
 import fs from 'fs'
 import test from 'ava'
 import {toAST} from 'ohm-js/extras'
