@@ -7,5 +7,4 @@ This package provides an [Ohm](https://ohmjs.org) for the
 [Ursa](https://ursalang.github.io) programming language, which is used by
 its [reference compiler](https://github.com/ursalang/ursa).
 
-The Ursa grammar is free software, licensed under the GNU GPL version 3 (or,
-at your option, any later version).
+The Ursa grammar is free software, licensed under the MIT license.
