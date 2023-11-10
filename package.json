@@ -1,10 +1,16 @@
 {
   "name": "@ursalang/ohm-grammar",
   "description": "An Ohm grammar for Ursa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Reuben Thomas",
   "license": "MIT",
-  "keywords": [ "ohm", "ohm-grammar", "peg", "ursa", "ursalang" ],
+  "keywords": [
+    "ohm",
+    "ohm-grammar",
+    "peg",
+    "ursa",
+    "ursalang"
+  ],
   "repository": "ursalang/ohm-grammar",
   "peerDependencies": {
     "ohm-js": "^17.1.0"
