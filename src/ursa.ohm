@@ -185,7 +185,9 @@ Ursa {
   lineTerminatorSequence
     = "\n" | "\r" ~"\n" | "\u2028" | "\u2029" | "\r\n"
 
-  comment = "//" (~lineTerminator any)*
+  comment = blockComment | lineComment
+  blockComment = "/*" (~("*/" | "/*") any)* blockComment? (~"*/" any)* "*/"
+  lineComment = "//" (~lineTerminator any)*
 
   // Override Ohm's built-in definition
   space := whitespace | lineTerminator | comment

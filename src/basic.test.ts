@@ -9,6 +9,8 @@ Error.stackTraceLimit = Infinity
 testGroup('Comments', [
   ['// Comment', []],
   ['// Comment\n3', ['3']],
+  ['/* Comment */', []],
+  ['/* Nested /* Comment */ */', []],
 ])
 
 testGroup('Concrete values', [
