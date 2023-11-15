@@ -96,7 +96,7 @@ semantics.addOperation<Map<string, any>>('freeVars(env)', {
 
   Fn(_fn, _open, params, _maybe_comma, _close, body) {
     const paramStrings = params.asIteration().children.map((x) => x.sourceString)
-    const innerEnv = this.args.env.pushFrame([...paramStrings])
+    const innerEnv = this.args.env.pushFrame([[...paramStrings], []])
     const freeVars = new FreeVars().merge(body.freeVars(innerEnv))
     paramStrings.forEach((p) => freeVars.delete(p))
     return freeVars
