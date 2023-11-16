@@ -21,6 +21,7 @@ Ursa {
     = null              -- null
     | bool
     | string
+    | literalString
     | number
     | continue          -- continue
     | ident             -- ident
@@ -161,8 +162,8 @@ Ursa {
 
   string = "\"" stringCharacter* "\""
   stringCharacter
-    = ~("\"" | "\\" | lineTerminator) any -- nonEscaped
-    | "\\" escapeSequence                 -- escaped
+    = ~("\"" | "\\") any     -- nonEscaped
+    | "\\" escapeSequence    -- escaped
   escapeSequence
     = unicodeEscapeSequence
     | hexEscapeSequence
@@ -173,7 +174,7 @@ Ursa {
   singleEscapeCharacter =
     "\"" | "\\" | "b" | "f" | "n" | "r" | "t" | "v"
   nonEscapeCharacter
-    = ~(escapeCharacter | lineTerminator) any
+    = ~escapeCharacter any
   escapeCharacter
     = singleEscapeCharacter | digit | "x" | "u"
   hexEscapeSequence
@@ -184,6 +185,13 @@ Ursa {
     = "\n" | "\r" | "\u2028" | "\u2029"
   lineTerminatorSequence
     = "\n" | "\r" ~"\n" | "\u2028" | "\u2029" | "\r\n"
+
+  literalString
+    = "r\"" (~"\"" any)* "\""
+    | "r#\"" (~"\"#" any)* "\"#"
+    | "r##\"" (~"\"##" any)* "\"##"
+    | "r###\"" (~"\"###" any)* "\"###"
+    | "r####\"" (~"\"####" any)* "\"####"
 
   comment = blockComment | lineComment
   blockComment = "/*" (~("*/" | "/*") any)* blockComment? (~"*/" any)* "*/"
