@@ -63,6 +63,7 @@
   },
   "pre-push": [
     "no-diff-or-untracked",
+    "clean",
     "test"
   ],
   "type": "module",
