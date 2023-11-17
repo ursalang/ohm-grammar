@@ -164,6 +164,8 @@ Ursa {
   stringCharacter
     = ~("\"" | "\\") any     -- nonEscaped
     | "\\" escapeSequence    -- escaped
+    | lineContinuation       -- lineContinuation
+  lineContinuation = "\\" lineTerminatorSequence
   escapeSequence
     = unicodeEscapeSequence
     | hexEscapeSequence
