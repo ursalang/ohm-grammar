@@ -63,6 +63,8 @@ Ursa {
 
   Loop = loop Block
 
+  For = for ident of Exp Block
+
   UnaryExp
     = break Exp?      -- break
     | return Exp?     -- return
@@ -117,6 +119,7 @@ Ursa {
   Exp
     = Ifs
     | Loop
+    | For
     | AssignmentExp
     | Lets
     | Use
@@ -133,16 +136,18 @@ Ursa {
   break = "break" ~identifierPart
   continue = "continue" ~identifierPart
   else = "else" ~identifierPart
+  for = "for" ~identifierPart
   fn = "fn" ~identifierPart
   if = "if" ~identifierPart
   let = "let" ~identifierPart
   loop = "loop" ~identifierPart
+  of = "of" ~identifierPart
   or = "or" ~identifierPart
   not = "not" ~identifierPart
   return = "return" ~identifierPart
   use = "use" ~identifierPart
 
-  keyword = and | break | continue | else | fn | if | let | loop | or | not | return | use
+  keyword = and | break | continue | else | for | fn | if | let | loop | of | or | not | return | use
 
   reservedWord = bool | null | keyword
 
@@ -162,7 +167,7 @@ Ursa {
 
   string = "\"" stringCharacter* "\""
   stringCharacter
-    = ~("\"" | "\\") any     -- nonEscaped
+    = ~("\"" | "\\" | lineTerminator) any     -- nonEscaped
     | "\\" escapeSequence    -- escaped
     | lineContinuation       -- lineContinuation
   lineContinuation = "\\" lineTerminatorSequence
@@ -176,7 +181,7 @@ Ursa {
   singleEscapeCharacter =
     "\"" | "\\" | "b" | "f" | "n" | "r" | "t" | "v"
   nonEscapeCharacter
-    = ~escapeCharacter any
+    = ~(escapeCharacter | lineTerminator) any
   escapeCharacter
     = singleEscapeCharacter | digit | "x" | "u"
   hexEscapeSequence

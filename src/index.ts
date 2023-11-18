@@ -115,6 +115,15 @@ semantics.addOperation<Map<string, any>>('freeVars(env)', {
     return freeVars
   },
 
+  For(_for, ident, _of, iterator, body) {
+    const loopVar = ident.sourceString
+    const innerEnv = this.args.env.push([loopVar, '_for'])
+    const freeVars = new FreeVars().merge(iterator.freeVars(this.args.env))
+      .merge(body.freeVars(innerEnv))
+    freeVars.delete(loopVar)
+    return freeVars
+  },
+
   Use(_use, pathList) {
     const path = pathList.asIteration().children
     const ident = path[path.length - 1]
