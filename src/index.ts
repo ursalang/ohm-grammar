@@ -117,9 +117,10 @@ semantics.addOperation<Map<string, any>>('freeVars(env)', {
 
   For(_for, ident, _of, iterator, body) {
     const forVar = ident.sourceString
-    const innerEnv = this.args.env.push(['_for', forVar])
-    const freeVars = new FreeVars().merge(iterator.freeVars(this.args.env))
-      .merge(body.freeVars(innerEnv))
+    const innerEnv = this.args.env.push(['_for'])
+    const loopEnv = innerEnv.push([forVar])
+    const freeVars = new FreeVars().merge(iterator.freeVars(innerEnv))
+      .merge(body.freeVars(loopEnv))
     freeVars.delete(forVar)
     return freeVars
   },
