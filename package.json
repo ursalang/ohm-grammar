@@ -1,7 +1,7 @@
 {
   "name": "@ursalang/ohm-grammar",
   "description": "An Ohm grammar for Ursa",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "author": "Reuben Thomas",
   "license": "MIT",
   "keywords": [
