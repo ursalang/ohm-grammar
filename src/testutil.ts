@@ -36,8 +36,8 @@ export function parse(
     If: {1: 1, 2: 2},
     Fn: {2: 2, 5: 5},
     Loop: {1: 1},
-    UnaryExp_break: {1: 1},
-    UnaryExp_return: {1: 1},
+    Exp_break: {1: 1},
+    Exp_return: {1: 1},
     // The following are to work around https://github.com/ohmjs/ohm/issues/463
     UnaryExp_not: {1: 1},
     UnaryExp_bitwise_not: {1: 1},

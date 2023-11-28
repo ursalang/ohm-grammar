@@ -31,7 +31,7 @@
                     "2": [
                       {
                         "1": "l",
-                        "type": "UnaryExp_return"
+                        "type": "Exp_return"
                       }
                     ],
                     "type": "If"

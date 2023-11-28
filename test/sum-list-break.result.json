@@ -38,7 +38,7 @@
                     "2": [
                       {
                         "1": "tot",
-                        "type": "UnaryExp_break"
+                        "type": "Exp_break"
                       }
                     ],
                     "type": "If"

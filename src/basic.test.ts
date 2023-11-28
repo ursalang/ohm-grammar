@@ -123,9 +123,9 @@ testGroup('Conditionals', [
 ])
 
 testGroup('loop and break', [
-  ['break', [{1: null, type: 'UnaryExp_break'}]],
+  ['break', [{1: null, type: 'Exp_break'}]],
   ['loop { break 3 }', [
-    {1: [{1: '3', type: 'UnaryExp_break'}], type: 'Loop'},
+    {1: [{1: '3', type: 'Exp_break'}], type: 'Loop'},
   ]],
 ])
 

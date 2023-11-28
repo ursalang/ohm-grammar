@@ -23,7 +23,6 @@ Ursa {
     | string
     | literalString
     | number
-    | continue          -- continue
     | ident             -- ident
     | List
     | Object
@@ -66,9 +65,7 @@ Ursa {
   For = for ident of Exp Block
 
   UnaryExp
-    = break Exp?      -- break
-    | return Exp?     -- return
-    | not Exp         -- not
+    = not Exp         -- not
     | "~" UnaryExp    -- bitwise_not
     | "+" UnaryExp    -- pos
     | "-" UnaryExp    -- neg
@@ -123,6 +120,9 @@ Ursa {
     | AssignmentExp
     | Lets
     | Use
+    | break Exp?      -- break
+    | continue        -- continue
+    | return Exp?     -- return
 
   Lets = NonemptyListOf<Let, and>
   Let = let ident "=" Exp

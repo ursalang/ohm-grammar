@@ -44,7 +44,7 @@
                         "2": [
                             {
                                 "1": "total",
-                                "type": "UnaryExp_break"
+                                "type": "Exp_break"
                             }
                         ],
                         "type": "If"
